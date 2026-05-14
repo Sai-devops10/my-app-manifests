@@ -3,19 +3,3 @@ kind: Kustomization
 
 resources:
   - ../../base
-
-namespace: my-app-prod
-
-patches:
-  - target:
-      kind: Deployment
-      name: sample-app-deployment
-    patch: |-
-      - op: replace
-        path: /spec/replicas
-        value: 3
-
-images:
-  - name: nginx
-    newName: nginx
-    newTag: 1.30.1
